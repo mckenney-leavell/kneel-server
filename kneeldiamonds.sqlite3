@@ -1,0 +1,33 @@
+CREATE TABLE `Metals`
+(
+    `id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    -- 160 is the amount of characters that can be included in datatype
+    `metal` NVARCHAR(160) NOT NULL,
+    -- datatype can store a number with a total of 5 digits, including 2 decimal points (biggest number can be 999.99)
+    `price` NUMERIC(5,2) NOT NULL
+);
+
+CREATE TABLE `Styles`
+(
+    `id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    `style` NVARCHAR(160) NOT NULL,
+    `price` NUMERIC(5,2) NOT NULL
+);
+
+CREATE TABLE `Sizes`
+(
+    `id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    `carats` NUMERIC(3,2) NOT NULL,
+    `price` NUMERIC(5,2) NOT NULL
+);
+
+CREATE TABLE `Orders`
+(
+    `id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    [metal_id] INTEGER NOT NULL,
+    FOREIGN KEY(`metal_id`) REFERENCES `Metals`(`id`)
+    [style_id] INTEGER NOT NULL,
+    FOREIGN KEY(`style_id`) REFERENCES `Styles`(`id`)
+    [size_id] INTEGER NOT NULL,
+    FOREIGN KEY(`size_id`) REFERENCES `Sizes`(`id`)
+);

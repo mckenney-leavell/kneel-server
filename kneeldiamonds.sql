@@ -57,3 +57,5 @@ DELETE FROM `Sizes` WHERE `id` = 6;
 DELETE FROM `Styles` WHERE `id` = 4;
 DELETE FROM `Styles` WHERE `id` = 5;
 DELETE FROM `Styles` WHERE `id` = 6;
+
+INSERT INTO `Orders` WHERE (null, 1, 3, 2)
